@@ -190,7 +190,11 @@ def count_paragraphs_helper(text):
     return len(paragraphs)
 
 def count_lines_helper(text):
-    sentences = re.split(r'\.\s+', text)
+    sentences = re.split(r'[.!?]\s*|(?<!\w)[,;](?!\w)\s*|$' , text)  # Split by periods, question marks, exclamation marks, commas, or semicolons followed by optional spaces, or just the end of the text
+    non_empty_sentences = [sentence for sentence in sentences if sentence.strip() != '']
+    return len(non_empty_sentences)
+
+
     
     line_count = len(sentences)
     return line_count

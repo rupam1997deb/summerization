@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <title>Text to Summary</title>
+    <style>
+        .navbar {
+        padding: 5px 10px; 
+    }
+
+    .navbar-toggler {
+        margin: 5px;
+    }
+
+    .navbar-brand img {
+        max-height: 60px; 
+    }
+
+    @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideInFromLeft 1s ease-in-out;
+        }
+
+    
+    .card {
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adjust the values as needed */
+    }
+    html {
+    scroll-behavior: smooth;
+}
+
+
+        
+
+
+
+    </style>
+  </head>
+  <body>
+    <!--   Nav bar starts here   -->
+    <nav class="navbar navbar-r navbar-expand-md navbar-light bg-light">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="https://idsil.com/index.php">
+                <div class="logo-image">
+                    <img src="https://idsil.com/images/IDS-logo.gif" class="img-fluid">
+                </div>
+            </a>
+
+            <button 
+             class="navbar-toggler"
+             type="button" 
+             data-bs-toggle="collapse" 
+             data-bs-target="#navbarNav" 
+             aria-controls="navbarNav" 
+             aria-expanded="false" 
+             aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon">
+
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000">Text Summarization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/text2">Text to Summary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/pdf2">Pdf to Summary</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+    <!--   Nav bar ends here   -->
+
+    <!--   Main content starts here   -->
+    <div class="container-fluid " style="padding-top: 60px; ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="text-align: start; color: #007bff;">
+                    <h2 class="display-1 slide-in"  style="text-shadow: 0px 2px 0px #007bff;">Let's Start </h2>
+                    <h2 class="display-1 slide-in"  style="text-shadow: 0px 2px 0px #007bff;">Summarizing...... </h2> 
+                    
+                </div>
+                <div class="col-md-6 d-flex justify-content-end" >
+                    {% load static %}
+                    <img src="{% static 'pngwing.png' %}" alt="Project Image" class="img-fluid " style="width: 50%; ">
+                </div>
+            </div>
+            
+        </div>
+        <div class="container ">
+            <div id="cardCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#cardCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#cardCarousel" data-slide-to="1"></li>
+                    <li data-target="#cardCarousel" data-slide-to="2"></li>
+                    <li data-target="#cardCarousel" data-slide-to="3"></li>
+                    <li data-target="#cardCarousel" data-slide-to="4"></li>
+                </ol>
+        
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container content-section" style="margin-top: 5%;">
+                            <div class="row ">
+                                <div class="col-md-3">
+                                    <div class="card shadow" style="margin-bottom: 10px;">
+                                        <div class="card-body" style="height: 60px;">
+                                            <p class="card-text" style="margin-bottom: 5px;"><span style="color: rgb(233, 96, 22);">drop your </span><span style="color: rgb(56, 113, 228);">text...!</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container content-section" style="margin-top: 5%;">
+                            <div class="row ">
+                                <div class="col-md-3">
+                                    <div class="card shadow" style="margin-bottom: 10px;">
+                                        <div class="card-body" style="height: 60px;">                                     
+                                            <p class="card-text"> <span style="color: brown;">make</span> <span style="color: rgb(26, 213, 101);">summary...</span></p>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container content-section" style="margin-top: 5%;">
+                            <div class="row ">
+                                <div class="col-md-3">
+                                    <div class="card shadow" style="margin-bottom: 10px;">
+                                        <div class="card-body" style="height: 60px;">
+                                            
+                                            <p class="card-text"> <span style="color: olive;">give a</span>  <span style="color: crimson;">keyword.....</span></p>
+                                                </p>
+                                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+                
+                <a class="carousel-control-prev" href="#cardCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#cardCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+                    
+    <div class="container mt-5">
+    <div class="card shadow p-4" style="border-radius: 10px; height: 418px;">
+        <div class="row">
+            <div class="col-md-12 ">
+                <form method = 'POST' action="{% url 'text2'%}">
+                    {% csrf_token %}
+                <label for="exampleFormControlTextarea1" class="form-level text-primary " >Type or paste some text.....</label>
+                <textarea name="description" value="oldDescription" class="form-control " id="exampleFormControlTextarea1" rows="9" required>{{oldDescription}}</textarea>
+                
+
+                    <div class="row">
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-4 mt-2">
+                            <label for="exampleFormControlInput1" class="form-label text-primary ">Keyword Search</label>
+                           
+                            <input type="text" name="keywords" class="form-control" id="exampleFormControlInput1" placeholder="Enter keyword related to your text..." required > 
+
+                        </div>
+                        <div class="col-4 mt-2">
+                            <label for="summary-length" class="form-label text-primary">Select Summary Length:</label>
+                            <select id="summary-length" name="summary_length" class="form-control">
+                            <option value="full" {% if selected_summary_length == "full" %}selected{% endif %}>Full Summary</option>
+                            <option value="one_third" {% if selected_summary_length == "one_third" %}selected{% endif %}>One Third Summary</option>
+                            <option value="two_thirds" {% if selected_summary_length == "two_thirds" %}selected{% endif %}>Two Thirds Summary</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary mt-2 float-right mt-2">Summarise Now</button>
+
+                        </div>
+
+                    </div>
+                    
+                
+                
+                
+            </div>
+             
+           
+           </div>
+         </div>
+        </div>
+       
+    
+       
+    </form>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <div class="card shadow " style="border-radius:10px ;">
+                    <div class="card-body">
+                        <label for="summaryText" class="form-label text-primary">Your summary is here....</label>
+                        <textarea class="form-control" id="summaryText" rows="9">{{ Summary }}</textarea>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+            <!-- Original statistics starts here-->
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-4">
+                    <div id="accordion">
+                        <div class="card mt-3">
+                            <div class="card-header bg-primary" id="headingOne" style="height: 3rem;">
+                                <h4 class="bg-primary text-white" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Main content statistics
+                                </h4>
+                            </div>
+            
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Number of paragraphs:</h5>
+                                        <p class="card-text">{{count}}</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Number of sentences:</h5>
+                                        <p class="card-text">{{lines}}</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Number of pages:</h5>
+                                        <p class="card-text">{{pages}}</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Character count:</h5>
+                                        <p class="card-text">{{char_count}}</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Character count (including spaces):</h5>
+                                        <p class="card-text">{{char_count_one}}</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Word count:</h5>
+                                        <p class="card-text">{{word_count}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            
+                
+                <div class="col-4 mb-5">
+                    <div id="accordion">
+                        <div class="card-header bg-primary" id="headingThree" style="height: 3rem;">
+                            <h4 class="bg-primary text-white mb-2" data-toggle="collapse" data-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree">
+                                Top Keywords
+                            </h4>
+                        </div>
+                
+                        <div id="collapsethree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body p-0">
+                                {% for word, count in top_keywords %}
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h6 class="card-title">{{ word }}</h6>
+                                            <p class="card-text">Count: {{ count }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                
+
+                
+
+                
+                
+                   
+                    
+                    
+
+                </div>
+
+            <!--summary statistics starts here-->
+            <div class="col-4 mb-5">
+                <div id="accordion">
+                    <div class="card mt-3">
+                        <div class="card-header bg-primary" id="headingTwo" style="height: 3rem;">
+                            <h4 class="bg-primary text-white mb-2" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                                Summary Statistics
+                            </h4>
+                        </div>
+            
+                        <div id="collapsetwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Number of paragraphs:</h5>
+                                    <p class="card-text">{{summary_count}}</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Number of pages:</h5>
+                                    <p class="card-text">{{summary_pages}}</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Character count:</h5>
+                                    <p class="card-text">{{summary_char_count}}</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Character count (including spaces):</h5>
+                                    <p class="card-text">{{summary_char_count_one}}</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Word count:</h5>
+                                    <p class="card-text">{{summary_word_count}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ... main content ... -->
+
+            <footer class="bg-dark text-white py-4 " style="margin-top: 10%;">
+                <div class="container-fluid bg-dark">
+                    <!-- Footer content here -->
+                    <div class="row bg-primary">
+                        <div class="col-md-6">
+                            <h4>About Us</h4>
+                            <p>We are a 34+ year old organization built on the legacy of providing customized solutions to professionals and business houses across different industries, enabling them to optimize their business processes and achieve their mission and organizational goals.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Contact Information</h4>
+                            <p>Email: info@idsil.com</p>
+                            <p>Phone: (+91) 172 505 3601</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+<!-- ... end of main content ... -->
+
+            
+        
+    
+    
+    <!--   Main content ends here   -->
+    
+    
+    
+    
+    
+
+
+
+
+
+<!-- ... footer ... -->
+
+
+
+<!-- ... footer ... -->
+
+
+
+
+        
+       
+    
+       
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
